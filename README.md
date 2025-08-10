@@ -16,6 +16,13 @@ Pridėta: `index.html`, `styles.css`, `app.js`.
 
 ## Versijos
 
+## 2025-08-10 – v1.4.0
+- Pridėtas **pagrindinis meniu** su PlayStation spalvų stilistika.
+- Meniu mygtukai: Pradėti su pasirinktu lygiu, Dienos iššūkis, Statistika, Nustatymai, Tęsti.
+- **Nustatymų modalas** su vibracijos, smart pastabų ir auto-vienintelių jungikliais.
+- **Statistikos modalas**: rodo geriausius rezultatus ir daily suvestinę.
+
+
 ## 2025-08-10 – v1.3.0
 - Pridėtas **konflikto paryškinimas**: bandant neteisėtą įvedimą, pažymima eilė, stulpelis ir blokas, o konfliktuojantys langeliai nusidažo.
 - Pieštukas **neleidžia** įrašyti neegzistuojančių kandidatų pagal taisykles.
