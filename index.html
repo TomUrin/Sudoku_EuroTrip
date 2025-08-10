@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku MVP+ Daily v2</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Sudoku MVP+ Daily v2</h1>
+      <div class="topbar">
+        <div class="status">
+          <div class="pill"><span>Laikas</span><strong id="time">00:00</strong></div>
+          <div class="pill"><span>Taškai</span><strong id="score">0</strong></div>
+          <div class="pill"><span>Kombas</span><strong id="combo">x1</strong></div>
+          <div class="pill"><span>Rekordas</span><strong id="bestScore">–</strong></div>
+          <div class="pill hidden" id="dailyTag"><span>Režimas</span><strong>Dienos iššūkis</strong></div>
+          <div class="pill hidden" id="dailyCountdown"><span>Kitas daily po</span><strong id="countdownText">--:--:--</strong></div>
+        </div>
+        <div class="lives" id="lives" aria-label="Gyvybės"></div>
+      </div>
+      <div class="controls">
+        <label>Sudėtingumas:
+          <select id="difficulty">
+            <option value="easy">Lengvas</option>
+            <option value="medium" selected>Vidutinis</option>
+            <option value="hard">Sunkus</option>
+            <option value="expert">Ekspertas</option>
+          </select>
+        </label>
+        <button id="newGameBtn">Naujas žaidimas</button>
+        <label class="dailyOpts hidden" id="dailyOpts">Daily lygis:
+          <select id="dailyDifficulty">
+            <option value="easy">Lengvas</option>
+            <option value="medium" selected>Vidutinis</option>
+            <option value="hard">Sunkus</option>
+            <option value="expert">Ekspertas</option>
+          </select>
+        </label>
+        <button id="dailyBtn">Daily challenge</button>
+        <button id="historyBtn">Rezultatų suvestinė</button>
+        <button id="checkBtn">Patikrinti</button>
+        <button id="hintBtn">Užuomina</button>
+        <button id="clearNotesBtn">Išvalyti pastabas</button>
+      </div>
+    
+        <div class="toolrow">
+          <div class="toolToggle">
+            <button id="pencilBtn" class="tool active" title="Pieštukas (pastaboms)">✏️ Pieštukas</button>
+            <button id="markerBtn" class="tool" title="Markeris (įrašo skaičių)">🖍️ Markeris</button>
+            <button id="eraserBtn" class="tool" title="Trintukas">🧽 Trintukas</button>
+          </div>
+          <div class="numpad" aria-label="Skaičių klaviatūra">
+            <button class="n" data-n="1">1</button>
+            <button class="n" data-n="2">2</button>
+            <button class="n" data-n="3">3</button>
+            <button class="n" data-n="4">4</button>
+            <button class="n" data-n="5">5</button>
+            <button class="n" data-n="6">6</button>
+            <button class="n" data-n="7">7</button>
+            <button class="n" data-n="8">8</button>
+            <button class="n" data-n="9">9</button>
+            <button id="clearCellBtn">Clear</button>
+          </div>
+        </div>
+
+
+        <div class="toolrow">
+          <div class="toolToggle">
+            <label><input type="checkbox" id="smartNotes" checked> Smart pastabos</label>
+            <label><input type="checkbox" id="autoSingles" checked> Auto užpildyti vienintelius</label>
+          </div>
+        </div>
+
+</header>
+
+    <main>
+      <div id="board" class="board" aria-label="Sudoku lenta" role="grid"></div>
+      <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+      <div id="overlay" class="overlay hidden" role="dialog" aria-live="assertive">
+        <div class="dialog">
+          <canvas id="shareCanvas" width="1200" height="630" class="hidden" aria-hidden="true"></canvas>
+          <h2 id="overlayTitle">Žaidimas baigtas</h2>
+          <p id="overlayText">Baigėsi gyvybės. Bandyk iš naujo.</p>
+          <div class="modalActions"><button id="shareBtn">Dalintis rezultatu</button><button id="downloadBtn">Atsisiųsti kortelę</button><button id="overlayBtn">Žaisti dar kartą</button></div>
+        </div>
+      </div>
+
+      <div id="historyModal" class="overlay hidden" role="dialog" aria-label="Rezultatų suvestinė">
+        <div class="dialog">
+          <canvas id="shareCanvas" width="1200" height="630" class="hidden" aria-hidden="true"></canvas>
+          <h2>Rezultatų suvestinė</h2>
+          <div id="historyTable" class="table"></div>
+          <div class="modalActions">
+            <button id="closeHistory">Uždaryti</button>
+            <button id="clearHistory">Išvalyti suvestinę</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Valdikliai: spausk ant langelio, rašyk skaičius 1–9. Alt+skaičius įrašo pastabą. Daily režimas naudoja tos dienos galvosūkį su tavo pasirinktu lygiu.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
